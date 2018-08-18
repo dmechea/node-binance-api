@@ -1331,9 +1331,9 @@ let api = function Binance() {
             signedRequest(wapi + 'v3/withdrawHistory.html', params, callback);
         },
 
-        withdrawFee: function (callback, asset = false) {
-            let params = asset ? { asset: asset } : {};
-            signedRequest(wapi + 'v3/withdrawFee.html', params, callback);
+        withdrawFee: function(symbol, callback) {
+          let params = { asset: symbol };
+          signedRequest(wapi + 'v3/withdrawFee.html', params, callback);
         },
 
         /**

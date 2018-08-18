@@ -879,7 +879,7 @@ describe('Withdraw', function() {
 
 describe('Get Current Withdraw Fees', function() {
   it('Attempt to get the withdraw fees for BTC', function(done) {
-    binance.withdrawFee((error, result) => {
+    binance.withdrawFee('BTC', (error, result) => {
       debug(error);
       debug(result);
       assert(typeof error === 'object', WARN_SHOULD_BE_OBJ);
