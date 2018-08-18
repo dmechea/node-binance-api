@@ -110,7 +110,9 @@ let api = function Binance() {
         return cb(null, JSON.parse(body));
     }
 
-    const proxyRequest = (opt, cb) => request(addProxy(opt), reqHandler(cb));
+    const proxyRequest = (opt, cb) => {
+      return request(addProxy(opt), reqHandler(cb));
+    }
 
     const reqObj = (url, data = {}, method = 'GET', key) => ({
         url: url,
@@ -1327,6 +1329,11 @@ let api = function Binance() {
         withdrawHistory: function (callback, asset = false) {
             let params = asset ? { asset: asset } : {};
             signedRequest(wapi + 'v3/withdrawHistory.html', params, callback);
+        },
+
+        withdrawFee: function (callback, asset = false) {
+            let params = asset ? { asset: asset } : {};
+            signedRequest(wapi + 'v3/withdrawFee.html', params, callback);
         },
 
         /**
